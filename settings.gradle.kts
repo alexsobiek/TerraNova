@@ -7,6 +7,8 @@ rootProject.name = "TerraNova"
 include("config")
 includeModuleBundle("server")
 includeModuleBundle("event")
+includeModule("network", "protocol")
+includeModuleBundle("instance")
 
 fun includeModuleBundle(name: String) {
     includeModule(name, "api")

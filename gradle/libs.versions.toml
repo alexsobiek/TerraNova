@@ -11,6 +11,7 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 logger-lib = { module = "com.alexsobiek:logger", version.ref = "logger-lib"}
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 netty = { module = "io.netty:netty-all", version.ref = "netty" }
+nettybuffer = { module = "io.netty:netty-buffer", version.ref = "netty" }
 nightconfigcore = { module = "com.electronwill.night-config:core", version.ref = "nightconfig" }
 nightconfigtoml = { module = "com.electronwill.night-config:toml", version.ref = "nightconfig" }
 
