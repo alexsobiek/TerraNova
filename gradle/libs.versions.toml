@@ -1,0 +1,20 @@
+[versions]
+lombok = "1.18.30"
+logger-lib = "85f506545f"
+gson = "2.10.1"
+netty = "4.1.106.Final"
+nightconfig="3.6.7"
+
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+logger-lib = { module = "com.alexsobiek:logger", version.ref = "logger-lib"}
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+netty = { module = "io.netty:netty-all", version.ref = "netty" }
+nightconfigcore = { module = "com.electronwill.night-config:core", version.ref = "nightconfig" }
+nightconfigtoml = { module = "com.electronwill.night-config:toml", version.ref = "nightconfig" }
+
+
+[bundles]
+logger = [ "logger-lib" ]
+nightconfig = [ "nightconfigcore", "nightconfigtoml" ]
