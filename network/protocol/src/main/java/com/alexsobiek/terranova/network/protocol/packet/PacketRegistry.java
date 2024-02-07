@@ -35,8 +35,8 @@ public class PacketRegistry {
         // TODO: registerIncoming((byte) 0x46, PacketBiNewInvalidState.class);  // ???
         // TODO: registerIncoming((byte) 0x65, PacketInCloseWindow.class);
         // TODO: registerIncoming((byte) 0x66, PacketInWindowClick.class);
-        // TODO: registerIncoming((0x6A, PacketBiTransaction.class);
-        // TODO: registerIncoming((0x82, PacketBiUpdateSign.class);
+        registerIncoming((byte) 0x6A, PacketBiTransaction.class);
+        registerIncoming((byte) 0x82, PacketBiUpdateSign.class);
         registerIncoming((byte) 0xFF, PacketBiDisconnect.class);
 
         // Outgoing Packets
@@ -78,13 +78,13 @@ public class PacketRegistry {
         // TODO: registerOutgoing((byte) 0x46, PacketBiNewInvalidState.class);  // ???
         // TODO: registerOutgoing((byte) 0x47, PacketOutThunderbolt.class);
         // TODO: registerOutgoing((byte) 0x64, PacketOutOpenWindow.class);
-        // TODO: registerOutgoing((byte) 0x67, PacketOutSetSlot.class);
+        registerOutgoing((byte) 0x67, PacketOutSetSlot.class);
         registerOutgoing((byte) 0x68, PacketOutWindowItems.class);
-        // TODO: registerOutgoing((0x69, PacketOutUpdateProgressBar.class);
-        // TODO: registerOutgoing((0x6A, PacketBiTransaction.class);
-        // TODO: registerOutgoing((0x82, PacketBiUpdateSign.class);
-        // TODO: registerOutgoing((0x83, PacketOutItemData.class);
-        // TODO: registerOutgoing((0xC8, PacketOutIncrementStatistic.class);
+        registerOutgoing((byte) 0x69, PacketOutUpdateProgressBar.class);
+        registerOutgoing((byte) 0x6A, PacketBiTransaction.class);
+        registerOutgoing((byte) 0x82, PacketBiUpdateSign.class);
+        registerOutgoing((byte) 0x83, PacketOutItemData.class);
+        registerOutgoing((byte) 0xC8, PacketOutIncrementStatistic.class);
 
 
 
