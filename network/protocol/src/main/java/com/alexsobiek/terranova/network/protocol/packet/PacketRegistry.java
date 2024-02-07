@@ -7,6 +7,7 @@ import com.alexsobiek.terranova.network.protocol.packet.bi.*;
 import java.util.HashMap;
 import java.util.Map;
 
+// Protocol documentation: https://wiki.vg/index.php?title=Protocol&oldid=510
 public class PacketRegistry {
     private static final Map<Byte, Class<? extends OutgoingPacket>> outgoingById = new HashMap<>();
     private static final Map<Class<? extends OutgoingPacket>, Byte> outgoingByClass = new HashMap<>();
@@ -26,13 +27,11 @@ public class PacketRegistry {
         registerIncoming((byte) 0x0C, PacketInLook.class);
         registerIncoming((byte) 0x0D, PacketBiLookPosition.class);
         registerIncoming((byte) 0x0E, PacketInMine.class);
-        // TODO: registerIncoming((byte) 0x0F, PacketInPlace.class);
-        // TODO: registerIncoming((byte) 0x10, PacketInHeldItem.class);
-        // TODO: registerIncoming((byte) 0x12, PacketBiAnimation.class);
+        registerIncoming((byte) 0x0F, PacketInPlaceBlock.class);
+        registerIncoming((byte) 0x10, PacketInHeldItem.class);
+        registerIncoming((byte) 0x12, PacketBiEntityAnimation.class);
         registerIncoming((byte) 0x13, PacketInEntityAction.class);
-        // TODO: registerIncoming((byte) 0x1C, PacketBiEntityVelocity.class);
-        // TODO: registerIncoming((byte) 0x27, PacketBiAttachEntity.class);
-        // TODO: registerIncoming((byte) 0x28, PacketBiEntityMetadata.class);   // This might only be outgoing
+        registerIncoming((byte) 0x1C, PacketBiEntityVelocity.class);
         // TODO: registerIncoming((byte) 0x46, PacketBiNewInvalidState.class);  // ???
         // TODO: registerIncoming((byte) 0x65, PacketInCloseWindow.class);
         // TODO: registerIncoming((byte) 0x66, PacketInWindowClick.class);
@@ -51,24 +50,24 @@ public class PacketRegistry {
         registerOutgoing((byte) 0x08, PacketOutSetHealth.class);
         registerOutgoing((byte) 0x09, PacketBiRespawn.class);
         registerOutgoing((byte) 0x0D, PacketBiLookPosition.class);
-        // TODO: registerOutgoing((byte) 0x11, PacketOutUseBed.class);
-        registerOutgoing((byte) 0x12, PacketOutEntityAnimation.class);          // TODO: this is bi-directional
+        registerOutgoing((byte) 0x11, PacketOutUseBed.class);
+        registerOutgoing((byte) 0x12, PacketBiEntityAnimation.class);
         registerOutgoing((byte) 0x14, PacketOutSpawnPlayer.class);
-        // TODO: registerOutgoing((byte) 0x15, PacketOutSpawnItem.class);
-        // TODO: registerOutgoing((byte) 0x16, PacketOutCollectItem.class);
-        // TODO: registerOutgoing((byte) 0x17, PacketOutSpawnObject.class);
-        // TODO: registerOutgoing((byte) 0x18, PacketOutSpawnMob.class);
-        // TODO: registerOutgoing((byte) 0x19, PacketOutSpawnPainting.class);   // This might be bi-directional
-        // TODO: registerOutgoing((byte) 0x1C, PacketBiEntityVelocity.class);
+        registerOutgoing((byte) 0x15, PacketOutSpawnItem.class);
+        registerOutgoing((byte) 0x16, PacketOutCollectItem.class);
+        registerOutgoing((byte) 0x17, PacketOutSpawnObject.class);
+        registerOutgoing((byte) 0x18, PacketOutSpawnMob.class);
+        registerOutgoing((byte) 0x19, PacketOutPainting.class);   // This might be bi-directional
+        registerOutgoing((byte) 0x1C, PacketBiEntityVelocity.class);
         registerOutgoing((byte) 0x1D, PacketOutDestroyEntity.class);
-        // TODO: registerOutgoing((byte) 0x1E, PacketOutEntity.class);          // ???
+        // TODO: registerOutgoing((byte) 0x1E, PacketOutEntity.class);          // ??? - not used
         registerOutgoing((byte) 0x1F, PacketOutEntityRelativeMove.class);
         registerOutgoing((byte) 0x20, PacketOutEntityLook.class);
-        // TODO: registerOutgoing((byte) 0x21, PacketOutEntityLookAndRelativeMove.class);
-        // TODO: registerOutgoing((byte) 0x22, PacketOutEntityTeleport.class);
-        // TODO: registerOutgoing((byte) 0x26, PacketOutEntityStatus.class);    // ???
-        // TODO: registerOutgoing((byte) 0x27, PacketBiAttachEntity.class);
-        // TODO: registerOutgoing((byte) 0x28, PacketBiEntityMetadata.class);   // This might only be outgoing
+        registerOutgoing((byte) 0x21, PacketOutEntityLookAndRelativeMove.class);
+        registerOutgoing((byte) 0x22, PacketOutEntityTeleport.class);
+        registerOutgoing((byte) 0x26, PacketOutEntityStatus.class);             // ??? - not fully understood
+        registerOutgoing((byte) 0x27, PacketOutAttachEntity.class);             // This might be bi-directional
+        registerOutgoing((byte) 0x28, PacketOutEntityMetadata.class);
         registerOutgoing((byte) 0x32, PacketOutPreChunk.class);
         registerOutgoing((byte) 0x33, PacketOutChunk.class);
         // TODO: registerOutgoing((byte) 0x34, PacketOutMultiBlockChange.class);// This might be bi-directional
